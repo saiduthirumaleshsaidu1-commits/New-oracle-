@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV భవిష్యవాణి - సంపూర్ణ తాంత్రిక కాలచక్ర దర్శనం</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(255, 100, 0, 0.3);
+            border: 1px solid #f97316;
+        }
+        h1 { color: #f97316; margin-bottom: 5px; }
+        p.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 25px; }
+        label { display: block; margin: 15px 0 5px; text-align: left; color: #cbd5e1; font-weight: bold; }
+        input[type="date"], select {
+            width: 100%;
+            padding: 12px;
+            background: #0f172a;
+            color: #fff;
+            border: 1px solid #475569;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            background: #f97316;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #ea580c; }
+        #output-box {
+            margin-top: 25px;
+            padding: 25px;
+            background: #0f172a;
+            border-left: 5px solid #f97316;
+            border-radius: 5px;
+            text-align: left;
+            display: none;
+            line-height: 1.8;
+        }
+        .section-title {
+            color: #f97316;
+            font-size: 18px;
+            border-bottom: 1px dashed #475569;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .warning-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #2d1b1b;
+            border: 1px solid #f87171;
+            border-radius: 5px;
+            color: #fca5a5;
+        }
+        .highlight { color: #38bdf8; font-weight: bold; }
+        .remedy { color: #f43f5e; font-weight: bold; }
+        .green-text { color: #4ade80; }
+        .red-text { color: #f87171; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>STGV భవిష్యవాణి</h1>
+    <p class="subtitle">ప్రాచీన తాంత్రిక శ్వాస, శబ్ద & సంఖ్యా విజ్ఞాన సంపూర్ణ డిజిటల్ ఓరాకిల్</p>
+
+    <!-- 1. పుట్టిన తేదీ -->
+    <label for="birth-date">మీ పుట్టిన తేదీని ఎంచుకోండి (Date of Birth):</label>
+    <input type="date" id="birth-date" required>
+
+    <!-- 2. పుట్టిన సమయం -->
+    <label for="birth-time">మీరు పుట్టిన సమయం (మానసిక స్థితి):</label>
+    <select id="birth-time">
+        <option value="day">పగలు (ఉదయం / మధ్యాహ్నం)</option>
+        <option value="evening">సంధ్యా సమయం (సాయంత్రం)</option>
+        <option value="night">రాత్రి / అర్ధరాత్రి</option>
+    </select>
+
+    <!-- 3. ప్రత్యేక దృష్టి (యూజర్ సమస్య) -->
+    <label for="user-focus">ప్రస్తుతం మీరు ఏ విషయంపై ప్రత్యేక దృష్టి పెట్టాలనుకుంటున్నారు?:</label>
+    <select id="user-focus">
+        <option value="obstacles">ఆర్థిక ఆటంకాలు / నిలిచిపోయిన పనులు (ఇల్లు మొదలైనవి)</option>
+        <option value="focus">మానసిక బద్ధకం / కోడింగ్, విద్యపై ఏకాగ్రత లోపించడం</option>
+        <option value="anger">కోపం, ఒత్తిడి నియంత్రణ</option>
+    </select>
+
+    <button onclick="generateFullTantricReport()">సంపూర్ణ తాంత్రిక జాతక दर्शनం</button>
+
+    <!-- ఫలితాలు ప్రదర్శించే బాక్స్ -->
+    <div id="output-box"></div>
+</div>
+
+<script>
+function reduceToSingleDigit(num) {
+    while (num > 9) {
+        num = num.toString().split('').reduce((acc, curr) => acc + parseInt(curr), 0);
+    }
+    return num;
+}
+
+function generateFullTantricReport() {
+    const dateInput = document.getElementById('birth-date').value;
+    const birthTime = document.getElementById('birth-time').value;
+    const focus = document.getElementById('user-focus').value;
+    const outputBox = document.getElementById('output-box');
+
+    if (!dateInput) {
+        alert("దయచేసి మీ పుట్టిన తేదీని ఎంచుకోండి!");
+        return;
+    }
+
+    const dateParts = dateInput.split('-');
+    const year = parseInt(dateParts[0]);
+    const month = parseInt(dateParts[1]);
+    const day = parseInt(dateParts[2]);
+
+    const soulNumber = reduceToSingleDigit(day); 
+    const totalSum = day + month + year;
+    const lifePathNumber = reduceToSingleDigit(totalSum); 
+
+    let soulEssence = "";
+    let careerText = "";
+    let strengthsAndWeaknesses = "";
+    let dosAndDonts = "";
+    let lifePathEssence = "";
+    let timeEssence = "";
+    let specialFocusRemedy = "";
+    let precautionsText = "";
+
+    // ఆత్మ సంఖ్య (Soul Number) ఆధారంగా విశ్లేషణ మరియు జాగ్రత్తలు
+    switch(soulNumber) {
+        case 1: case 9:
+            soulEssence = "<b>అగ్ని తత్వం:</b> మీ ఆత్మలో అపారమైన కసి, పట్టుదల, నాయకత్వ లక్షణాలు ఉంటాయి.";
+            careerText = "రాజకీయాలు, స్వంత వ్యాపారాలు, డిఫెన్స్, కాంట్రాక్టులు, లేదా లీడర్‌షిప్ రోల్స్ మీకు అద్భుతంగా కలిసివస్తాయి. ఎవరి కిందా పని చేయడం మీకు నచ్చదు.";
+            strengthsAndWeaknesses = "<b>బలాలు:</b> అపారమైన ధైర్యం, పనులు వేగంగా పూర్తి చేయడం.<br><b>బలహీనతలు:</b> తొందరపాటుతనం, అహంకారం (Ego), చిన్న విషయాలకే సహనం కోల్పోవడం.";
+            dosAndDonts = "<b>చేయవలసిన పనులు:</b> రోజు ఉదయం సూర్య నమస్కారాలు లేదా సూర్య నాడి శ్వాస సాధన చేయడం.<br><b>చేయకూడని పనులు:</b> తండ్రితో లేదా పై अधिकारियोंతో అనవసరమైన గొడవలకు దిగకూడదు.";
+            precautionsText = "అతి కోపం వల్ల మీ బ్లడ్ ప్రెజర్ (రక్తపోటు) పెరిగే అవకాశం ఉంది, జాగ్రత్త. ఎవరికైనా హామీ ఇచ్చేటప్పుడు లేదా అప్పులు ఇచ్చేటప్పుడు ఆవేశపడకుండా ఒకటికి రెండుసార్లు ఆలోచించండి.";
+            break;
+            
+        case 2: case 7:
+            soulEssence = "<b>జల తత్వం:</b> మీలో లోతైన అంతర్దృష్టి, కళా నైపుణ్యాలు, నిగూఢ విషయాలను శోధించే శక్తులు ఉంటాయి.";
+            careerText = "శిల్పకళ, డిజైనింగ్, రీసెర్చ్, వైద్యం, ఫార్మసీ, లేదా క్రియేటివ్ రైటింగ్ రంగాలు మీకు అత్యంత అనుకూలం. రాళ్లు, మెటల్స్ లేదా ద్రవ పదార్థాలతో చేసే పనులు కలిసివస్తాయి.";
+            strengthsAndWeaknesses = "<b>బలాలు:</b> అద్భుతమైన ఊహాశక్తి (Creativity), ఇతరుల మనస్సును గ్రహించే అంతర్దృష్టి.<br><b>బలహీనతలు:</b> మానసిక అస్థిరత (Mood swings), అతిగా ఆలోచించడం (Overthinking), శీఘ్ర నిరాశ.";
+            dosAndDonts = "<b>చేయవలసిన పనులు:</b> రోజుకు కనీసం 10 నిమిషాలు ధ్యానం లేదా చంద్ర నాడి శ్వాస చేయడం, వెండి కడియం ధరించడం.<br><b>చేయకూడని పనులు:</b> రాత్రి పూట ముఖ్యమైన నిర్ణయాలు తీసుకోకూడదు.";
+            precautionsText = "ఇతరులను అతిగా నమ్మి మోసపోయే అవకాశం ఉంది, ఆర్థిక లావాదేవీల్లో గుడ్డి నమ్మకం వద్దు. ముఖ్యంగా చల్లటి వాతావరణం లేదా వర్షాకాలంలో కఫం/జలుబు వంటి సమస్యల పట్ల జాగ్రత్త వహించాలి.";
+            break;
+            
+        case 3: case 5: case 6:
+            soulEssence = "<b>ఆకాశ/పృథ్వి తత్వం:</b> మీ మేధస్సు చాలా పదునైనది. విద్యా, టెక్నాలజీ రంగాలు మీకు సహజంగానే అబ్బుతాయి.";
+            careerText = "సాఫ్ట్‌వేర్ డెవలప్‌మెంట్, AI (ఆర్టిఫిషియల్ ఇంటెలిజెన్స్), బోధన, అకౌంట్స్, లేదా డిజిటల్ మీడియా రంగాలు మీకు బాగా అనుకూలిస్తాయి.";
+            strengthsAndWeaknesses = "<b>బలాలు:</b> వేగంగా కోడింగ్ లేదా కొత్త విద్యలు నేర్చుకోవడం, చక్కని వాక్చాతుర్యం.<br><b>బలహీనతలు:</b> ఒకేసారి రెండు, మూడు పనులపై చేతులు వేయడం వల్ల ఫోకస్ దెబ్బతినడం.";
+            dosAndDonts = "<b>చేయవలసిన పనులు:</b> రోజువారీ ప్రణాళిక (To-do list) రాసుకోవడం, పచ్చని ప్రకృతిలో గడపడం.<br><b>చేయకూడని పనులు:</b> పనులు సగంలో ఆపేసి వేరే వాటిపైకి వెళ్లకూడదు.";
+            precautionsText = "మానసిక శ్రమ ఎక్కువగా చేయడం వల్ల త్వరగా అలసట రావచ్చు. ప్రతి 2 గంటలకొకసారి కళ్లకు విశ్రాంతి ఇవ్వండి. భాగస్వామ్య (Partnership) వ్యాపారాలు చేసేటప్పుడు పేపర్ వర్క్ పక్కాగా ఉండేలా చూసుకోవాలి.";
+            break;
+            
+        case 4: case 8:
+            soulEssence = "<b>వాయు తత్వం:</b> మీ జీవితంలో భౌతిక శ్రమ, సాంకేతిక పరిజ్ఞానం రెండూ సమానంగా ఉంటాయి. నిలకడగా ఎదిగే తత్వం మీది.";
+            careerText = "निర్మాణ రంగాలు (ఇళ్లు/కట్టడాలు), భారీ యంత్రాలు లేదా లోహాల పరిశ్రమ, సాఫ్ట్‌వేర్ ఆర్కిటెక్చర్, మరియు హార్డ్ వర్క్‌తో కూడిన సాంకేతిక పనులు మీకు అద్భుతమైన విజయాన్ని ఇస్తాయి.";
+            strengthsAndWeaknesses = "<b>బలాలు:</b> ఎంతటి కష్టాన్నైనా తట్టుకునే అపారమైన ఓర్పు, పక్కా ప్లానింగ్, మొండి పట్టుదల.<br><b>బలహీనతలు:</b> ఆర్థిక విషయాలలో ఇబ్బందులు రావడం, కొన్నిసార్లు విపరీతమైన మొండితనం లేదా ఒంటరితనం.";
+            dosAndDonts = "<b>చేయవలసిన పనులు:</b> కుడిచేతికి ఇనుము లేదా రాగి కడియం ధరించడం, పశ్చిమ దిశకు ముఖం పెట్టి పనిచేయడం.<br><b>చేయకూడని పనులు:</b> శనివారం రోజు ఎవరితోనూ వివాదాలు పెట్టుకోకూడదు, అప్పులు ఇవ్వకూడదు.";
+            precautionsText = "పనులు ఆలస్యం అవుతున్నప్పుడు నిరాశ పడకూడదు, కాలం మీకు ఆలస్యంగానైనా ఖచ్చితమైన విజయాన్ని ఇస్తుంది. కీళ్ల నొప్పులు లేదా వాతం వంటి సమస్యలు రాకుండా వర్షాకాలంలో సూర్య నాడి శ్వాసను అలవాటు చేసుకోండి.";
+            break;
+            
+        default:
+            soulEssence = "స్థిరమైన తాంత్రిక ఆత్మ తత్వం కలిగి ఉన్నారు.";
+            careerText = "పరిశ్రమలు, సేవా రంగాలు అనుకూలం.";
+            strengthsAndWeaknesses = "<b>బలాలు:</b> శాంత స్వభావం.<br><b>బలహీనతలు:</b> ఆలస్యం.";
+            dosAndDonts = "<b>చేయవలసిన పనులు:</b> క్రమశిక్షణ.<br><b>చేయకూడని పనులు:</b> సమయాన్ని వృధా చేయడం.";
+            precautionsText = "ఆరోగ్యం మరియు ఆహార నియమాల పట్ల జాగ్రత్త వహించాలి.";
+    }
+
+    // జీవన మార్గ సంఖ్య (Life Path) లాజిక్
+    if (lifePathNumber === 1 || lifePathNumber === 3 || lifePathNumber === 9) {
+        lifePathEssence = "మీ జీవిత గమనం క్రమంగా ఉన్నత స్థానాలకు, అధికార లాభానికి దారితీస్తుంది. స్వంతంగా ఇల్లు కట్టుకోవడం, సమాజంలో మంచి పేరు తెచ్చుకోవడం మీ టైమ్‌లైన్‌లో బలంగా ఉంది.";
+    } else if (lifePathNumber === 2 || lifePathNumber === 5 || lifePathNumber === 6) {
+        lifePathEssence = "మీ జీవిత గమనం టెక్నాలజీ, సమాచార విజ్ఞానం (AI/యూట్యూబ్) ద్వారా ఆర్థిక లాభాలను, కీర్తిని పొందేలా చేస్తుంది.";
+    } else {
+        lifePathEssence = "మీ జీవిత గమనం శని చైతన్యంతో కూడినది. 36 సంవత్సరాల వయస్సు తర్వాత (ముఖ్యంగా 2026 సంవత్సరం నుండి) మీ శ్రమకు వంద రెట్ల ఫలితం లభిస్తుంది. ఆగిపోయిన పనులన్నీ వేగంగా పూర్తవుతాయి.";
+    }
+
+    // పుట్టిన సమయం లాజిక్
+    if (birthTime === "night" || birthTime === "evening") {
+        timeEssence = "మీరు సంధ్యా/రాత్రి వేళలో జన్మించడం వల్ల మీలో <span class='highlight'>వృశ్చిక రాశి నిగూఢ శోధన శక్తి</span> బలంగా ఉంది. క్లిష్టమైన సాఫ్ట్‌వేర్ కోడింగ్ మరియు గంభీరమైన శిల్పకళా లాజిక్స్ డీకోడ్ చేయడం మీకు సాధ్యం అవుతుంది.";
+    } else {
+        timeEssence = "మీరు పగటి వేళలో జన్మించడం వల్ల మీ ఆలోచనలు స్పష్టంగా, సాత్వికంగా, సమాజానికి మేలు చేసే విధంగా ఉంటాయి.";
+    }
+
+    // ప్రత్యేక దృష్టి (పరిహారం)
+    if (focus === "obstacles") {
+        specialFocusRemedy = "పశ్చిమ దిశగా ముఖం పెట్టి కూర్చుని, శ్వాసను కుడి ముక్కు (సూర్య నాడి) లోక మార్చుకుని, <span class='remedy'>'क्ष్రౌం'</span> బీజాక్షరాన్ని 21 సార్లు ఉచ్చరించండి. నిలిచిపోయిన ఇల్లు/ఆర్థిక పనులు వేగవంతం అవుతాయి.";
+    } else if (focus === "focus") {
+        specialFocusRemedy = "కోడింగ్ రాసేటప్పుడు బద్ధకం వస్తే ఎడమ చంకపై స్వల్ప ఒత్తిడి ఇచ్చి శ్వాసను కుడి ముక్కులోకి మార్చండి. అలాగే, పనికి ముందు గోడపై ఉన్న నల్లటి బిందువుపై 1 నిమిషం ఏకాగ్రత నిలపండి (యంత్ర తంత్రం).";
+    } else if (focus === "anger") {
+        specialFocusRemedy = "కోపం లేదా తీవ్రమైన ఒత్తిడి వచ్చినప్పుడు తಕ್ಷಣమే కుడి ముక్కు మూసి, ఎడమ ముక్కు (చంద్ర నాడి) ద్వారా 3 నిమిషాలు శ్వాస తీసుకోండి. రోజు ఉదయం 11 సార్లు <span class='remedy'>'శీతలి ప్రాణాయామం'</span> సాధన చేయండి.";
+    }
+
+    // సంపూర్ణ ఫలితాన్ని బాక్స్‌లో ప్రదర్శించడం
+    outputBox.innerHTML = `
+        <h3 style="color: #f97316; text-align:center;">--- STGV సంపూర్ణ తాంత్రిక కాలజ్ఞాన పత్రం ---</h3>
+        
+        <div class="section-title">1. ఆత్మ స్వరూప విశ్లేషణ & తత్వము</div>
+        <p>మీ పుట్టిన తేదీ మూల సంఖ్య: <span class="highlight">${soulNumber}</span></p>
+        <p>${soulEssence}</p>
+
+        <div class="section-title">2. అనుకూలమైన వృత్తి / వ్యాపార రంగాలు</div>
+        <p>${careerText}</p>
+
+        <div class="section-title">3. మీ నైజం (బలాలు & బలహీనతలు)</div>
+        <p>${strengthsAndWeaknesses}</p>
+
+        <div class="section-title">4. తాంత్రిక జీవన సూత్రాలు (Do's & Don'ts)</div>
+        <p class="green-text">${dosAndDonts.split('<br>')[0]}</p>
+        <p class="red-text">${dosAndDonts.split('<br>')[1]}</p>
+
+        <div class="section-title">5. జీవిత గమనం & కాలచక్ర టైమ్‌లైన్</div>
+        <p>మీ సంపూర్ణ భాగ్య సంఖ్య: <span class="highlight">${lifePathNumber}</span></p>
+        <p>${lifePathEssence}</p>
+
+        <div class="section-title">6. మానసిక స్థితి (సమయ ప్రభావం)</div>
+        <p>${timeEssence}</p>
+
+        <div class="section-title">7. ప్రస్తుత ప్రత్యేక దృష్టి - సాత్విక పరిహారం</div>
+        <p>${specialFocusRemedy}</p>
+
+        <div class="section-title">8. ముఖ్య గమనిక - తీసుకోవలసిన జాగ్రత్తలు</div>
+        <div class="warning-box">
+            📌 <b>తాంత్రిక హెచ్చరిక:</b> ${precautionsText}
+        </div>
+        
+        <p style="font-size:12px; color:#94a3b8; text-align:center; margin-top:25px;">* సత్యం ఒక్కటే, సాధన ద్వారానే శక్తి లభిస్తుంది - STGV విజ్ఞానం *</p>
+    `;
+    outputBox.style.display = "block";
+}
+</script>
+
+</body>
+</html>
