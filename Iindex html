@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV తాంత్రిక కాలచక్ర దర్శనం & సమష్టి ఒరాకిల్</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --accent-color: #ff7b00;
+            --text-color: #c9d1d9;
+            --text-glow: #ffaa44;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px dashed var(--accent-color);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(255, 123, 0, 0.3);
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #8b949e;
+        }
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        @media (min-width: 768px) {
+            .grid-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        h2 {
+            color: var(--text-glow);
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: white;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-color);
+            color: black;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff9500;
+            box-shadow: 0 0 15px rgba(255, 123, 0, 0.4);
+        }
+        .output-box {
+            background-color: #0d1117;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+            display: none;
+        }
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        blockquote {
+            background: #21262d;
+            border-left: 5px solid #8b949e;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>STGV తాంత్రిక కాలచక్ర దర్శనం</h1>
+        <div class="subtitle">వ్యష్టి (వ్యక్తిగత) మరియు సమష్టి (ప్రకృతి) కాల నిర్ణయ వేదిక</div>
+    </header>
+
+    <div class="grid-section">
+        <!-- విభాగం 1: వ్యక్తిగత జీవిత నిర్ధారణ ఒరాకిల్ -->
+        <div class="card">
+            <h2>🔮 వ్యక్తిగత జీవిత నిర్ణయం (వ్యష్టి)</h2>
+            <p style="font-size: 13px; color: #8b949e;">మీ పుట్టిన వివరాలు ఇవ్వండి. మా తాంత్రిక లాజిక్ మీ వివాహ, సంతాన స్థితిని స్వయంగా డిసైడ్ చేస్తుంది.</p>
+            
+            <div class="form-group">
+                <label for="fullName">పూర్తి పేరు (ఇంగ్లీష్ లేదా తెలుగు):</label>
+                <input type="text" id="fullName" placeholder="ఉదా: Saidu Thirumalesh">
+            </div>
+            <div class="form-group">
+                <label for="birthDate">పుట్టిన తేదీ:</label>
+                <input type="date" id="birthDate">
+            </div>
+            <div class="form-group">
+                <label for="birthTime">पुట్టిన సమయం:</label>
+                <input type="time" id="birthTime">
+            </div>
+            
+            <button onclick="calculatePersonalOracle()">కాలచక్ర దర్శనం ఆక్టివేట్ చేయి</button>
+
+            <div id="personalOutput" class="output-box"></div>
+        </div>
+
+        <!-- విభాగం 2: సమష్టి కాలచక్ర పంచాంగం -->
+        <div class="card">
+            <h2>🌍 విశ్వ కాలచక్ర ఫలితాలు (సమష్టి)</h2>
+            <p style="font-size: 13px; color: #8b949e;">ప్రస్తుత సంవత్సర కాల గమనం ఆధారంగా ప్రకృతి, పంటలు మరియు వింతల ముందస్తు అంచనా.</p>
+            
+            <div class="form-group">
+                <label for="panchangYear">సంవత్సరాన్ని ఎంచుకోండి:</label>
+                <select id="panchangYear" onchange="updateSamashtiPanchang()">
+                    <option value="2026">2026 - పరాభవ నామ సంవత్సరం (ప్రస్తుత కాలం)</option>
+                    <option value="2027">2027 - ప్లావంగ నామ సంవత్సరం</option>
+                    <option value="2028">2028 - కీలక నామ సంవత్సరం</option>
+                </select>
+            </div>
+
+            <div id="samashtiOutput" style="background-color: #0d1117; padding: 15px; border-radius: 6px; border: 1px solid #30363d;">
+                <!-- Default 2026 data loaded via JS -->
+            </div>
+        </div>
+    </div>
+
+    <blockquote>
+        <strong>STGV సూత్రం:</strong> "సమష్టి చైతన్యమే సృష్టి నియమం. కాలచక్ర గమనాన్ని అర్థం చేసుకోవడమే పరమ జ్ఞానం."
+    </blockquote>
+</div>
+
+<script>
+    // పేరు యొక్క తాంత్రిక శబ్ద విలువను లెక్కించే సింపుల్ లాజిక్ (Chaldean/Vedic Base)
+    function getNameVibration(name) {
+        let cleanName = name.toUpperCase().replace(/[^A-Z]/g, '');
+        let total = 0;
+        for (let i = 0; i < cleanName.length; i++) {
+            total += cleanName.charCodeAt(i);
+        }
+        return (total % 9) + 1; // 1 నుండి 9 మధ్య సంఖ్య
+    }
+
+    // వ్యక్తిగత ఒరాకిల్ లెక్కింపు
+    function calculatePersonalOracle() {
+        let name = document.getElementById('fullName').value;
+        let dob = document.getElementById('birthDate').value;
+        
+        if (!name || !dob) {
+            alert("దయచేసి పేరు మరియు పుట్టిన తేదీని నమోదు చేయండి!");
+            return;
+        }
+
+        let birthYear = new Date(dob).getFullYear();
+        let currentYear = 2026;
+        let age = currentYear - birthYear;
+        let nameWeight = getNameVibration(name);
+        
+        let personalOutput = document.getElementById('personalOutput');
+        personalOutput.style.display = "block";
+
+        let marriageStatus = "";
+        let childrenStatus = "";
+        let energyBlock = "";
+
+        // వయస్సు మరియు పేరు వైబ్రేషన్ ఆధారంగా పక్కా లాజిక్ డిసిషన్
+        if (age < 22) {
+            marriageStatus = "ప్రస్తుతం మీకు విద్యా యోగం, కెరీర్ ఎదుగుదల కాలం నడుస్తోంది. వివాహ కాలచక్రం ఇంకా ప్రారంభం కాలేదు.";
+            childrenStatus = "భవిష్యత్తులో ఉన్నతమైన సంతాన యోగానికి పునాది పడే కాలం.";
+            energyBlock = "మొబైల్ లేదా స్క్రీన్ టైమ్ వల్ల మానసిక శక్తి వృథా అయ్యే అవకాశం ఉంది. ప్రాణాయామం అవసరం.";
+        } else if (age >= 22 && age <= 33) {
+            if (nameWeight % 2 === 0) {
+                marriageStatus = "మీ శబ్ద తరంగాల ప్రకారం <span class='highlight'>వివాహ బంధం ఏర్పడింది</span> లేదా ప్రస్తుతం బలమైన దాంపత్య ముహూర్త కాలం నడుస్తోంది.";
+                childrenStatus = "వంశాభివృద్ధికి, మేధోసంపత్తి గల సంతాన ప్రాప్తికి అద్భుతమైన అనుకూల సమయం.";
+            } else {
+                marriageStatus = "వివాహ ప్రయత్నాలలో లేదా దాంపత్యంలో స్వల్ప శ్వాస/మనస్తత్వ ఆటంకాలు ఉన్నాయి. కాలక్రమేణా సర్దుకుంటుంది.";
+                childrenStatus = "సంతాన ప్రాప్తి కోసం శారీరక ఉష్ణోగ్రతను, నాడీ వ్యవస్థను సమతుల్యం చేసుకోవాలి.";
+            }
+            energyBlock = "అధిక ఆలోచనలు (Overthinking) వల్ల నిద్రలేమి లోపం రావచ్చు.";
+        } else {
+            marriageStatus = "దాంపత్య జీవితం స్థిరపడింది. కుటుంబ బాధ్యతలను మోసే పక్వత కలిగిన కాలం నడుస్తోంది.";
+            if (nameWeight % 3 === 0) {
+                childrenStatus = "మీ సంతానానికి <span class='highlight'>శాస్త్రవేత్తలుగా లేదా ఉన్నత శిఖరాలకు</span> చేరే గొప్ప మేధస్సు లభిస్తుంది. వారిని ప్రకృతి వైపు నడిపించండి.";
+            } else {
+                childrenStatus = "సంతానం యొక్క విద్య మరియు భవిష్యత్తుపై ప్రత్యేక శ్రద్ధ పెట్టాల్సిన సమయం.";
+            }
+            energyBlock = "శారీరక శ్రమ లేదా వృత్తిపరమైన ఒత్తిడి వల్ల వెన్నునొప్పి/కీళ్ళ నొప్పుల పట్ల జాగ్రత్త వహించాలి.";
+        }
+
+        personalOutput.innerHTML = `
+            <h3>🔮 తాంత్రిక విశ్లేషణ ఫలితం:</h3>
+            <p><strong>ప్రస్తుత వయస్సు:</strong> ${age} సంవత్సరాలు</p>
+            <p><strong>నామ వైబ్రేషన్ సంఖ్య:</strong> ${nameWeight}</p>
+            <hr style="border-color:#30363d;">
+            <p><strong>💍 వివాహ స్థితి/యోగం:</strong> ${marriageStatus}</p>
+            <p><strong>👶 సంతాన చైతన్యం:</strong> ${childrenStatus}</p>
+            <p><strong>⚠️ ఊర్జా అవరోధాలు (Energy Block):</strong> ${energyBlock}</p>
+            <p style="font-size:12px; color:#8b949e; margin-top:15px;">*గమనిక: ఇది STGV డిజిటల్ ఒరాకిల్ యొక్క అంతర్గత కాలిక్యులేషన్ లాజిక్ ద్వారా ఇవ్వబడినది.</p>
+        `;
+    }
+
+    // సమష్టి పంచాంగ డేటా అప్డేట్ లాజిక్
+    const samashtiData = {
+        "2026": {
+            title: "2026 - పరాభవ నామ సంవత్సరం",
+            rain: "మధ్యస్థం నుండి భారీ వర్షాలు. కాలం కాని కాలంలో తుఫానులు వచ్చే సూచనలు ఉన్నాయి.",
+            crops: "మిరప, పత్తి మరియు కాయధాన్యాల పంటలకు విపరీతమైన డిమాండ్ మరియు బలం ఉంటుంది. భూగర్భ పంటలు (கிழంగులు) బాగా పండుతాయి.",
+            wonders: "ఖగోళంలో అరుదైన గ్రహాల కూటమి వల్ల వాతావరణంలో అకస్మాత్తుగా ఊహించని మార్పులు వస్తాయి. టెక్నాలజీ రంగంలో AI విప్లవం మానవ మేధస్సును సవాలు చేసే వింతలు జరుగుతాయి.",
+            remedy: "ప్రజలందరూ సామూహికంగా జల సంరక్షణ చేయడం మరియు ప్రకృతిని గౌరవించడం ద్వారా ఈ సంవత్సర దోషాల నుండి విముక్తి పొందవచ్చు."
+        },
+        "2027": {
+            title: "2027 - ప్లావంగ నామ సంవత్సరం",
+            rain: "అత్యధిక వర్షపాతం. నదులు, జలాశయాలు నిండి వరదలు వచ్చే ప్రమాదం ఉంది.",
+            crops: "వరి, చెరకు మరియు తోటపంటలు (మామిడి, అరటి) అత్యధిక దిగుబడిని ఇస్తాయి. మార్కెట్ స్థిరంగా ఉంటుంది.",
+            wonders: "సముద్ర గర్భంలో కొత్త మార్పులు లేదా అగ్నిపర్వతాల కదలికలు వార్తల్లో నిలుస్తాయి. పాత సాంప్రదాయ వైద్య పద్ధతులకు ప్రపంచవ్యాప్తంగా గుర్తింపు లభిస్తుంది.",
+            remedy: "గ్రామాల్లో చెట్లు నాటడం, చెరువులను శుభ్రం చేయడం ద్వారా సమష్టి ఆరోగ్యం బాగుంటుంది."
+        },
+        "2028": {
+            title: "2028 - కీలక నామ సంవత్సరం",
+            rain: "ప్రారంభంలో కరవు ఛాయలు, ఉత్తరార్ధంలో అనుకూలమైన వర్షాలు పడతాయి.",
+            crops: "ధాన్యాలు మరియు నూనె గింజల (వేరుశనగ, నువ్వులు) పంటలకు ఈ సంవత్సరం చాలా బలంగా ఉంది.",
+            wonders: "అంతరిక్ష పరిశోధనలలో సరికొత్త వింతలు కనుగొనబడతాయి. ఒక వింత వ్యాధి వచ్చి ప్రకృతి చికిత్సల ద్వారా మాత్రమే నయమయ్యే విడ్డూరం చూస్తాం.",
+            remedy: "సూర్య నమస్కారాలు మరియు సమూహ ధ్యానాలు సమాజానికి రక్షణ కవచాలుగా మారుతాయి."
+        }
+    };
+
+    function updateSamashtiPanchang() {
+        let year = document.getElementById('panchangYear').value;
+        let data = samashtiData[year];
+        let container = document.getElementById('samashtiOutput');
+
+        container.innerHTML = `
+            <h3 style="color:var(--accent-color); margin-top:5px;">${data.title}</h3>
+            <p><strong>🌧️ వర్షపాతం & ప్రకృతి:</strong> ${data.rain}</p>
+            <p><strong>🌾 పంటల బలం & వ్యవసాయం:</strong> ${data.crops}</p>
+            <p><strong>⚡ వింతలు - విడ్డూరాలు:</strong> ${data.wonders}</p>
+            <p><strong>🌱 సామూహిక పరిహారం:</strong> ${data.remedy}</p>
+        `;
+    }
+
+    // యాప్ ఓపెన్ అవ్వగానే 2026 డేటా లోడ్ అవ్వడానికి
+    window.onload = function() {
+        updateSamashtiPanchang();
+    };
+</script>
+
+</body>
+</html>
