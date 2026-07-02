@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV - వ్యష్టి & సమష్టి సంపూర్ణ కాలచక్ర దర్శనం</title>
+    <style>
+        :root {
+            --bg-color: #070b12;
+            --card-bg: #101626;
+            --accent-cyan: #00ffcc;
+            --accent-blue: #00b3ff;
+            --gold-color: #ffd700;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --danger-red: #f87171;
+            --success-green: #4ade80;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: var(--accent-cyan);
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+        .tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+        }
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: var(--gold-color);
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background-color: #090d16;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        input:focus, select:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.2);
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #070b12;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+        }
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #070b12;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-cyan);
+            display: none;
+        }
+        .result-item {
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #1e293b;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .result-title {
+            font-weight: bold;
+            color: var(--accent-cyan);
+            font-size: 15px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .result-desc {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: var(--gold-color);
+            font-weight: bold;
+        }
+        
+        /* ప్రత్యేక గైడ్‌లైన్స్ బ్లాక్స్ */
+        .guide-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        @media (max-width: 600px) {
+            .guide-box {
+                grid-template-columns: 1fr;
+            }
+        }
+        .do-panel {
+            background-color: rgba(74, 222, 128, 0.05);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .dont-panel {
+            background-color: rgba(248, 113, 113, 0.05);
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .guide-title-do { color: var(--success-green); font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+        .guide-title-dont { color: var(--danger-red); font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+
+        /* సమష్టి స్టైల్స్ */
+        .samasti-item {
+            padding: 15px;
+            background-color: #090d16;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #1e293b;
+        }
+        .samasti-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--accent-blue);
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>STGV వ్యష్టి & సమష్టి సంపూర్ణ కాలచక్ర దర్శనం</h1>
+        <div class="tagline">ప్రాచీన తాంత్రిక విజ్ఞానం - నియమావళి మరియు జాగ్రత్తలతో కూడిన డిజిటల్ వేదిక</div>
+    </header>
+
+    <div class="grid-layout">
+        
+        <div class="section-card">
+            <h2>🔮 వ్యష్టి కాలచక్రం (వ్యक्तिగత ఒరాకిల్ & నియమావళి)</h2>
+            <div class="form-group">
+                <label for="fullName">పూర్తి పేరు (Full Name - ఇంగ్లీష్ లో):</label>
+                <input type="text" id="fullName" placeholder="ఉదా: Saidu Thirumalesh">
+            </div>
+            <div class="form-group">
+                <label for="birthDate">పుట్టిన తేదీ (Date of Birth):</label>
+                <input type="date" id="birthDate">
+            </div>
+            <div class="form-group">
+                <label for="birthTime">మీరు పుట్టిన సమయం (మానసిక స్థితి):</label>
+                <select id="birthTime">
+                    <option value="day">పగలు (ఉదయం / మధ్యాహ్నం)</option>
+                    <option value="evening">సంధ్యా సమయం (సాయంత్రం)</option>
+                    <option value="night">రాత్రి / అర్ధరాత్రి</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="breathRate">మీ ప్రస్తుత శ్వాస వేగం (నిమిషానికి ఎన్ని శ్వాసలు - సాధారణంగా 12-18):</label>
+                <input type="number" id="breathRate" value="15" min="5" max="30">
+            </div>
+            <div class="form-group">
+                <label for="userFocus">ప్రస్తుతం మీరు ఏ విషయంపై ప్రత్యేక దృష్టి పెట్టాలనుకుంటున్నారు?:</label>
+                <select id="userFocus">
+                    <option value="obstacles">ఆర్థిక ఆటంకాలు / నిలిచిపోయిన పనులు (ఇల్లు మొదలైనవి)</option>
+                    <option value="focus">మానసిక బద్ధకం / కోడింగ్, విద్యపై ఏకాగ్రత లోపించడం</option>
+                    <option value="anger">కోపం, ఒత్తిడి నియంత్రణ</option>
+                </select>
+            </div>
+            <button onclick="calculateVyashti()">సంపూర్ణ వ్యష్టి కాలచక్రాన్ని ఆక్టివేట్ చేయి</button>
+
+            <div id="vyashtiResult" class="result-box">
+                <div class="result-item">
+                    <div class="result-title">🌌 1. విశ్వదర్శన శ్వాస తరంగ లాజిక్ (Cosmic Breath View)</div>
+                    <p id="vishwadarshanamText" class="result-desc"></p>
+                </div>
+                <div class="result-item">
+                    <div class="result-title">🧬 2. ప్రస్తుత కాల స్థితి & గుర్తింపు</div>
+                    <p id="ageStatus" class="result-desc"></p>
+                </div>
+                <div class="result-item">
+                    <div class="result-title">💍 3. వివాహ బంధ స్థితి</div>
+                    <p id="marriageStatus" class="result-desc"></p>
+                </div>
+                <div class="result-item">
+                    <div class="result-title">👶 4. వంశ వృద్ధి చైతన్యం</div>
+                    <p id="childrenStatus" class="result-desc"></p>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-title">⚠️ 5. మీ కాలచక్ర నియమావళి & జాగ్రత్తలు</div>
+                    <p id="precautionText" class="result-desc" style="margin-bottom: 10px; color: var(--gold-color);"></p>
+                    
+                    <div class="guide-box">
+                        <div class="do-panel">
+                            <div class="guide-title-do">✅ చేయవలసిన పనులు (Dos)</div>
+                            <p id="dosText" class="result-desc" style="font-size: 13px; color: var(--success-green);"></p>
+                        </div>
+                        <div class="dont-panel">
+                            <div class="guide-title-dont">❌ చేయకూడని పనులు (Don'ts)</div>
+                            <p id="dontsText" class="result-desc" style="font-size: 13px; color: var(--danger-red);"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-title">⚡ 6. ప్రస్తుత ప్రత్యేక దృష్టి - సాత్విక తాంత్రిక పరిహారం</div>
+                    <p id="specialFocusRemedy" class="result-desc"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>🌍 సమష్టి కాలచక్రం (ప్రకృతి & సామాజిక వేవ్)</h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: -10px; margin-bottom: 20px;">
+                ప్రస్తుత విశ్వ తరంగాలు మరియు సామాజిక కాలగమన విశ్లేషణ:
+            </p>
+            
+            <div class="samasti-item">
+                <div class="samasti-meta"><span>సామాజిక స్థితి (Social Wave)</span><span class="highlight">కలియుగ చలనం</span></div>
+                <p class="result-desc">ప్రస్తుత కాలంలో సమాజంలో స్వార్ధం, అహంకారం, త్వరితగతిన ఉద్వేగానికి లోనవ్వడం ఎక్కువగా కనిపిస్తాయి. దీనిని అధిగమించడానికి నైతిక విలువలతో కూడిన పెంపకం అత్యవసరం.</p>
+            </div>
+
+            <div class="samasti-item">
+                <div class="samasti-meta"><span>ప్రకృతి మార్పులు (Nature Shifts)</span><span style="color: var(--danger-red);">తీవ్రత: మధ్యమం</span></div>
+                <p class="result-desc">భూ అయస్కాంత క్షేత్రంలో వస్తున్న మార్పుల వల్ల అకాల పర్యావరణ మార్పులు సంభవించే సూచనలు కాలచక్రంపై స్పష్టంగా కనిపిస్తున్నాయి.</p>
+            </div>
+
+            <div class="samasti-item">
+                <div class="samasti-meta"><span>STGV కాస్మిక్ రెమెడీ (Remedy)</span><span style="color: #a7f3d0;">ప్రాణ శక్తి</span></div>
+                <p class="result-desc" style="font-style: italic; color: #a7f3d0;">సమష్టిగా వచ్చే మానసిక ఒత్తిడి నుండి సమాజం ఉపశమనం పొందడానికి, ప్రతి ఒక్కరూ రోజువారీ శ్వాసపై ధ్యాస (ప్రాణాయామం) ఉంచడం శ్రేయస్కరం.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function reduceToSingleDigit(num) {
+        while (num > 9) {
+            num = num.toString().split('').reduce((acc, curr) => acc + parseInt(curr), 0);
+        }
+        return num;
+    }
+
+    // పేరు యొక్క తాంత్రిక శబ్ద వైబ్రేషన్ లెక్కింపు (% 9 లాజిక్)
+    function calculateNameVibration(name) {
+        let cleanName = name.toUpperCase().replace(/[^A-Z]/g, '');
+        let total = 0;
+        for (let i = 0; i < cleanName.length; i++) {
+            total += cleanName.charCodeAt(i);
+        }
+        return (total % 9) + 1;
+    }
+
+    function calculateVyashti() {
+        let name = document.getElementById('fullName').value.trim();
+        let dob = document.getElementById('birthDate').value;
+        let birthTime = document.getElementById('birthTime').value;
+        let breathRate = parseInt(document.getElementById('breathRate').value) || 15;
+        let focus = document.getElementById('userFocus').value;
+
+        if (!name || !dob) {
+            alert("దయచేసి పేరు మరియు పుట్టిన తేదీని నమోదు చేయండి!");
+            return;
+        }
+
+        let dateParts = dob.split('-');
+        let year = parseInt(dateParts[0]);
+        let month = parseInt(dateParts[1]);
+        let day = parseInt(dateParts[2]);
+
+        let soulNumber = reduceToSingleDigit(day);
+        let lifePathNumber = reduceToSingleDigit(day + month + year);
+        let nameWeight = calculateNameVibration(name);
+        let currentYear = 2026; 
+        let age = currentYear - year;
+
+        // 1. విశ్వదర్శన శ్వాస తరంగ లాజిక్ (Cosmic Breath Engine)
+        let totalDailyBreaths = breathRate * 60 * 24;
+        let cosmicConstant = 21600;
+        let expansionFactor = ((breathRate * cosmicConstant) / 365.25).toFixed(2);
+        let spaceCurvature = (100 - (breathRate * 3.3)).toFixed(1);
+
+        let vishwadarshanamText = `మీరు నిమిషానికి తీసుకునే <span class='highlight'>${breathRate}</span> శ్వాసల ఆధారంగా మీ దినసరి శ్వాసల వేగం సుమారు <span class='highlight'>${totalDailyBreaths.toLocaleString()}</span> గా ఉంది. సూర్య సిద్ధాంతం మరియు కాలచక్ర తంత్రం ప్రకారం ఒక మహాయుగ కాల ప్రమాణానికి మీ శ్వాసకు గల కాస్మిక్ వైబ్రేషన్ ఇండెక్స్: <span class='highlight'>${expansionFactor} Hz</span>. శాస్త్రవేత్తలు వెతుకుతున్న అదృశ్య శక్తి (Dark Matter) మరియు స్పేస్-టైమ్ వంపు (<span class='highlight'>${spaceCurvature}% Curvature</span>) మీ శరీర శ్వాస వ్యవస్థతో అంతర్గతంగా సింక్ అయి ఉంది. శ్వాస నిలకడగా ఉన్నప్పుడే కాలచక్రం మీ ఆధీనంలోకి వస్తుంది.`;
+
+        let vyashtiResult = document.getElementById('vyashtiResult');
+        let ageStatus = document.getElementById('ageStatus');
+        let marriageStatus = document.getElementById('marriageStatus');
+        let childrenStatus = document.getElementById('childrenStatus');
+        let precautionText = document.getElementById('precautionText');
+        let dosText = document.getElementById('dosText');
+        let dontsText = document.getElementById('dontsText');
+        let specialFocusRemedy = document.getElementById('specialFocusRemedy');
+
+        let mText = "";
+        let cText = "";
+        let pText = "";
+        let doText = "";
+        let dontText = "";
+        let lifePathEssence = "";
+
+        // ఆత్మ సంఖ్య (Soul Number) ఆధారంగా విశ్లేషణ మరియు జాగ్రత్తలు
+        let soulEssence = "";
+        let careerText = "";
+        let strengthsAndWeaknesses = "";
+
+        switch(soulNumber) {
+            case 1: case 9:
+                soulEssence = "<b>అగ్ని తత్వం:</b> మీ ఆత్మలో అపారమైన కసి, పట్టుదల, నాయకత్వ లక్షణాలు ఉంటాయి.";
+                careerText = "రాజకీయాలు, స్వంత వ్యాపారాలు, డిఫెన్స్, కాంట్రాక్టులు, లేదా లీడర్‌షిప్ రోల్స్ మీకు అద్భుతంగా కలిసివస్తాయి. ఎవరి కిందా పని చేయడం మీకు నచ్చదు.";
+                strengthsAndWeaknesses = "<b>బలాలు:</b> అపారమైన ధైర్యం, పనులు వేగంగా పూర్తి చేయడం.<br><b>బలహీనతలు:</b> తొందరపాటుతనం, అహంకారం (Ego), చిన్న విషయాలకే సహనం కోల్పోవడం.";
+                doText = "రోజు ఉదయం సూర్య నమస్కారాలు లేదా సూర్య నాడి శ్వాస సాధన చేయడం.";
+                dontText = "తండ్రితో లేదా పై అధికారులతో అనవసరమైన గొడవలకు దిగకూడదు.";
+                pText = "అతి కోపం వల్ల మీ బ్లడ్ ప్రెజర్ (రక్తపోటు) పెరిగే అవకాశం ఉంది, జాగ్రత్త. ఎవరికైనా హామీ ఇచ్చేటప్పుడు లేదా అప్పులు ఇచ్చేటప్పుడు ఆవేశపడకుండా ఒకటికి రెండుసార్లు ఆలోచించండి.";
+                break;
+            case 2: case 7:
+                soulEssence = "<b>జల తత్వం:</b> మీలో లోతైన అంతర్దృష్టి, కళా నైపుణ్యాలు, నిగూఢ విషయాలను శోధించే శక్తులు ఉంటాయి.";
+                careerText = "శిల్పకళ, డిజైనింగ్, రీసెర్చ్, వైద్యం, ఫార్మసీ, లేదా క్రియేటివ్ రైటింగ్ రంగాలు మీకు అత్యంత అనుకూలం. రాళ్లు, మెటల్స్ లేదా ద్రవ పదార్థాలతో చేసే పనులు కలిసివస్తాయి.";
+                strengthsAndWeaknesses = "<b>బలాలు:</b> అద్భుతమైన ఊహాశక్తి (Creativity), ఇతరుల మనస్సును గ్రహించే అంతర్దృష్టి.<br><b>బలహీనతలు:</b> మానసిక అస్థిరత (Mood swings), అతిగా ఆలోచించడం (Overthinking), శీఘ్ర నిరాశ.";
+                doText = "రోజుకు కనీసం 10 నిమిషాలు ధ్యానం లేదా చంద్ర నాడి శ్వాస చేయడం, వెండి కడియం ధరించడం.";
+                dontText = "రాత్రి పూట ముఖ్యమైన నిర్ణయాలు తీసుకోకూడదు.";
+                pText = "ఇతరులను అతిగా నమ్మి మోసపోయే అవకాశం ఉంది, ఆర్థిక లావాదేవీల్లో గుడ్డి నమ్మకం వద్దు. ముఖ్యంగా చల్లటి వాతావరణం లేదా వర్షాకాలంలో కఫం/జలుబు వంటి సమస్యల పట్ల జాగ్రత్త వహించాలి.";
+                break;
+            case 3: case 5: case 6:
+                soulEssence = "<b>ఆకాశ/పృథ్వి తత్వం:</b> మీ మేధస్సు చాలా పదునైనది. విద్యా, టెక్నాలజీ రంగాలు మీకు సహజంగానే అబ్బుతాయి.";
+                careerText = "సాఫ్ట్‌వేర్ డెవలప్‌మెంట్, AI (ఆర్టిఫిషియల్ ఇంటెలిజెన్స్), బోధన, అకౌంట్స్, లేదా డిజిటల్ మీడియా రంగాలు మీకు బాగా అనుకూలిస్తాయి.";
+                strengthsAndWeaknesses = "<b>బలాలు:</b> వేగంగా కోడింగ్ లేదా కొత్త విద్యలు నేర్చుకోవడం, చక్కని వాక్చాతుర్యం.<br><b>బలహీనతలు:</b> ఒకేసారి రెండు, మూడు పనులపై చేతులు వేయడం వల్ల ఫోకస్ దెబ్బతినడం.";
+                doText = "రోజువారీ ప్రణాళిక (To-do list) రాసుకోవడం, పచ్చని ప్రకృతిలో గడపడం.";
+                dontText = "పనులు సగంలో ఆపేసి వేరే వాటిపైకి వెళ్లకూడదు.";
+                pText = "మానసిక శ్రమ ఎక్కువగా చేయడం వల్ల త్వరగా అలసట రావచ్చు. ప్రతి 2 గంటలకొకసారి కళ్లకు విశ్రాంతి ఇవ్వండి. భాగస్వామ్య (Partnership) వ్యాపారాలు చేసేటప్పుడు పేపర్ వర్క్ పక్కాగా ఉండేలా చూసుకోవాలి.";
+                break;
+            case 4: case 8:
+                soulEssence = "<b>వాయు తత్వం:</b> మీ జీవితంలో భౌతిక శ్రమ, సాంకేతిక పరిజ్ఞానం రెండూ సమానంగా ఉంటాయి. నిలకడగా ఎదిగే తత్వం మీది.";
+                careerText = "నిర్మాణ రంగాలు (ఇళ్లు/కట్టడాలు), భారీ యంత్రాలు లేదా లోహాల పరిశ్రమ, సాఫ్ట్‌వేర్ ఆర్కిటెక్చర్, మరియు హార్డ్ వర్క్‌తో కూడిన సాంకేతిక పనులు మీకు అద్భుతమైన విజయాన్ని ఇస్తాయి.";
+                strengthsAndWeaknesses = "<b>బలాలు:</b> ఎంతటి కష్టాన్నైనా తట్టుకునే అపారమైన ఓర్పు, పక్కా ప్లానింగ్, మొండి పట్టుదల.<br><b>బలహీనతలు:</b> ఆర్థిక విషయాలలో ఇబ్బందులు రావడం, కొన్నిసార్లు విపరీతమైన మొండితనం లేదా ఒంటరితనం.";
+                doText = "కుడిచేతికి ఇనుము లేదా రాగి కడియం ధరించడం, పశ్చిమ దిశకు ముఖం పెట్టి పనిచేయడం.";
+                dontText = "శనివారం రోజు ఎవరితోనూ వివాదాలు పెట్టుకోకూడదు, అప్పులు ఇవ్వకూడదు.";
+                pText = "పనులు ఆలస్యం అవుతున్నప్పుడు నిరాశ పడకూడదు, కాలం మీకు ఆలస్యంగానైనా ఖచ్చితమైన విజయాన్ని ఇస్తుంది. కీళ్ల నొప్పులు లేదా వాతం వంటి సమస్యలు రాకుండా వర్షాకాలంలో సూర్య నాడి శ్వాసను అలవాటు చేసుకోండి.";
+                break;
+            default:
+                soulEssence = "స్థిరమైన తాంత్రిక ఆత్మ తత్వం కలిగి ఉన్నారు.";
+                careerText = "పరిశ్రమలు, సేవా రంగాలు అనుకూలం.";
+                strengthsAndWeaknesses = "<b>బలాలు:</b> శాంత స్వభావం.<br><b>బలహీనతలు:</b> ఆలస్యం.";
+                doText = "క్రమశిక్షణ.";
+                dontText = "సమయాన్ని వృధా చేయడం.";
+                pText = "ఆరోగ్యం మరియు ఆహార నియమాల పట్ల జాగ్రత్త వహించాలి.";
+        }
+
+        // జీవన మార్గ సంఖ్య (Life Path) లాజిక్
+        if (lifePathNumber === 1 || lifePathNumber === 3 || lifePathNumber === 9) {
+            lifePathEssence = "మీ జీవిత గమనం క్రమంగా ఉన్నత స్థానాలకు, అధికార లాభానికి దారితీస్తుంది. స్వంతంగా ఇల్లు కట్టుకోవడం, సమాజంలో మంచి పేరు తెచ్చుకోవడం మీ టైమ్‌లైన్‌లో బలంగా ఉంది.";
+        } else if (lifePathNumber === 2 || lifePathNumber === 5 || lifePathNumber === 6) {
+            lifePathEssence = "మీ జీవిత గమనం టెక్నాలజీ, సమాచార విజ్ఞానం (AI/యూట్యూబ్) ద్వారా ఆర్థిక లాభాలను, కీర్తిని పొందేలా చేస్తుంది.";
+        } else {
+            lifePathEssence = "మీ జీవిత గమనం శని 
