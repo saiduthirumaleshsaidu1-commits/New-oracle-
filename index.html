@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV - వ్యష్టి & సమష్టి కాలచక్ర దర్శనం</title>
+    <style>
+        :root {
+            --bg-color: #070b12;
+            --card-bg: #101626;
+            --accent-cyan: #00ffcc;
+            --accent-blue: #00b3ff;
+            --gold-color: #ffd700;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: var(--accent-cyan);
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+        .tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: var(--gold-color);
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            background-color: #090d16;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.2);
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #070b12;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #070b12;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-cyan);
+            display: none;
+        }
+        .result-item {
+            margin-bottom: 12px;
+        }
+        .result-title {
+            font-weight: bold;
+            color: var(--accent-cyan);
+            font-size: 14px;
+        }
+        .result-desc {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin: 4px 0 0 0;
+            line-height: 1.5;
+        }
+        .highlight {
+            color: var(--gold-color);
+            font-weight: bold;
+        }
+        /* సమష్టి స్టైల్స్ */
+        .samasti-item {
+            padding: 12px;
+            background-color: #090d16;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #1e293b;
+        }
+        .samasti-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--accent-blue);
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>STGV వ్యష్టి & సమష్టి కాలచక్ర દર્શనం</h1>
+        <div class="tagline">ప్రాచీన తాంత్రిక విజ్ఞానం - డిజిటల్ కాలగమన వేదిక</div>
+    </header>
+
+    <div class="grid-layout">
+        
+        <!-- 1. వ్యష్టి కాలచక్రం (ব্যক্তিগত ఒరాకిల్) -->
+        <div class="section-card">
+            <h2>🔮 వ్యష్టి కాలచక్రం (వ్యక్తిగత నిర్ణయం)</h2>
+            <div class="form-group">
+                <label for="fullName">పూర్తి పేరు (Full Name):</label>
+                <input type="text" id="fullName" placeholder="ఉదా: Saidu Thirumalesh">
+            </div>
+            <div class="form-group">
+                <label for="birthDate">పుట్టిన తేదీ (Date of Birth):</label>
+                <input type="date" id="birthDate">
+            </div>
+            <div class="form-group">
+                <label for="birthTime">పుట్టిన సమయం (Time of Birth):</label>
+                <input type="time" id="birthTime">
+            </div>
+            <button onclick="calculateVyashti()">వ్యష్టి కాలచక్రాన్ని ఆక్టివేట్ చేయి</button>
+
+            <div id="vyashtiResult" class="result-box">
+                <div class="result-item">
+                    <div class="result-title">🧬 ప్రస్తుత కాల స్థితి</div>
+                    <p id="ageStatus" class="result-desc"></p>
+                </div>
+                <div class="result-item">
+                    <div class="result-title">💍 వివాహ బంధ స్థితి</div>
+                    <p id="marriageStatus" class="result-desc"></p>
+                </div>
+                <div class="result-item">
+                    <div class="result-title">👶 వంశ వృద్ధి చైతన్యం</div>
+                    <p id="childrenStatus" class="result-desc"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. సమష్టి కాలచక్రం (సమాజ/ప్రకృతి పరిణామాలు) -->
+        <div class="section-card">
+            <h2>🌍 సమష్టి కాలచక్రం (ప్రకృతి గమనం)</h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: -10px; margin-bottom: 15px;">
+                ప్రస్తుత ఖగోళ తరంగాలు మరియు సామాజిక మానసిక స్థితి విశ్లేషణ:
+            </p>
+            
+            <div class="samasti-item">
+                <div class="samasti-meta"><span>సామాజిక స్థితి (Social Wave)</span><span class="highlight">కలియుగ చలనం</span></div>
+                <p class="result-desc">ప్రస్తుత కాలంలో సమాజంలో స్వార్ధం, అహంకారం హెచ్చుతాయని ప్రాచీన లాజిక్ చెప్తోంది. దీనిని అధిగమించడానికి నైతిక విలువలతో కూడిన పెంపకం అత్యవసరం.</p>
+            </div>
+
+            <div class="samasti-item">
+                <div class="samasti-meta"><span>ప్రకృతి మార్పులు (Nature Shifts)</span><span style="color: #f87171;">తీవ్రత: మధ్యమం</span></div>
+                <p class="result-desc">భూ అయస్కాంత క్షేత్రంలో వస్తున్న మార్పుల వల్ల అకాల వర్షాలు, పర్యావరణంలో అకస్మాత్తు మార్పులు సంభవించే సూచనలు కాలచక్రంపై స్పష్టంగా కనిపిస్తున్నాయి.</p>
+            </div>
+
+            <div class="samasti-item">
+                <div class="samasti-meta"><span>STGV సూచన (Cosmic Remedy)</span><span style="color: #a7f3d0;">ప్రాణ శక్తి</span></div>
+                <p class="result-desc" style="font-style: italic; color: #a7f3d0;">సమష్టిగా వచ్చే మానసిక ఒత్తిడి నుండి సమాజం ఉపశమనం పొందడానికి, ప్రతి ఒక్కరూ రోజువారీ శ్వాసపై ధ్యాస (ప్రాణాయామం) ఉంచడం శ్రేయస్కరం.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // పేరు యొక్క తాంత్రిక శబ్ద వైబ్రేషన్ లెక్కింపు (% 9 లాజిక్)
+    function calculateNameVibration(name) {
+        let cleanName = name.toUpperCase().replace(/[^A-Z]/g, '');
+        let total = 0;
+        for (let i = 0; i < cleanName.length; i++) {
+            total += cleanName.charCodeAt(i);
+        }
+        return (total % 9) + 1;
+    }
+
+    function calculateVyashti() {
+        let name = document.getElementById('fullName').value.trim();
+        let dob = document.getElementById('birthDate').value;
+
+        if (!name || !dob) {
+            alert("దయచేసి పేరు మరియు పుట్టిన తేదీని నమోదు చేయండి!");
+            return;
+        }
+
+        let birthYear = new Date(dob).getFullYear();
+        let currentYear = 2026; // ప్రస్తుత సంవత్సరం 2026 బేస్
+        let age = currentYear - birthYear;
+        let nameWeight = calculateNameVibration(name);
+
+        let vyashtiResult = document.getElementById('vyashtiResult');
+        let ageStatus = document.getElementById('ageStatus');
+        let marriageStatus = document.getElementById('marriageStatus');
+        let childrenStatus = document.getElementById('childrenStatus');
+
+        let mText = "";
+        let cText = "";
+
+        if (age < 22) {
+            mText = "ప్రస్తుతం మీ కాలచక్రం విద్యా చైతన్యం వైపు నడుస్తోంది. <span class='highlight'>వివాహ బంధ సమయం ఇంకా ప్రారంభం కాలేదు</span>.";
+            cText = "భవిష్యత్తులో వంశ వృద్ధికి శరీరం శక్తిని కూడగట్టుకునే పరిణామ కాలం.";
+        } 
+        else if (age >= 22 && age <= 33) {
+            if (nameWeight % 2 === 0) {
+                mText = "మీ నామ శబ్ద తరంగాల ప్రకారం, మీకు <span class='highlight'>వివాహ బంధం ఏర్పడింది</span> లేదా ప్రస్తుతం అత్యంత బలమైన వివాహ యోగ కాలం నడుస్తోంది.";
+                cText = "సంతాన ప్రాప్తికి మరియు వంశాభివృద్ధికి కాలం చాలా అనుకూలంగా ఉంది.";
+            } else {
+                mText = "ప్రస్తుతం వివాహ ప్రయత్నాలలో ఉన్నట్లు ఒరాకిల్ సూచిస్తోంది. స్వల్ప ఆటంకాలు ఎదురైనా త్వరలోనే అనుకూల కాలం వస్తుంది.";
+                cText = "సంతాన కాంక్ష ఉన్న ఎడల, ముందుగా నాడీ వ్యవస్థను శుద్ధి (ప్రాణాయామం) చేసుకోవాలి.";
+            }
+        } 
+        else {
+            mText = "మీ కాలచక్రం ప్రకారం <span class='highlight'>దాంపత్య జీవితం స్థిరపడింది</span>. కుటుంబ బాధ్యతలు ప్రధానంగా సాగుతున్న కాలం.";
+            if (nameWeight % 3 === 0) {
+                cText = "మీకు సంతానం ఉన్నట్లు ఒరాకిల్ స్పష్టం చేస్తోంది. మీ పిల్లలు <span class='highlight'>శాస్త్రవేత్తలుగా లేదా ఉన్నత మేధో శిఖరాలకు</span> చేరే అద్భుతమైన గ్రహ బలం కలిగి ఉన్నారు.";
+            } else {
+                cText = "సంతానం యొక్క విద్యా చైతన్యం మరియు వారి భవిష్యత్తు ప్రణాళికలపై మీరు ప్రత్యేక శ్రద్ధ పెట్టాల్సిన సమయం.";
+            }
+        }
+
+        ageStatus.innerHTML = `మీ ప్రస్తుత వయస్సు సుమారు <span class='highlight'>${age} సంవత్సరాలు</span>. (నామ వైబ్రేషన్ సంఖ్య: ${nameWeight})`;
+        marriageStatus.innerHTML = mText;
+        childrenStatus.innerHTML = cText;
+
+        vyashtiResult.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
