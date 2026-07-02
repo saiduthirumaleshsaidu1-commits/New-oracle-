@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV విశ్వదర్శనం Pro - సంపూర్ణ కాలచక్ర భవిష్య దర్శన పీఠం</title>
+    <style>
+        :root {
+            --bg-dark: #050811;
+            --card-bg: #0b132b;
+            --accent-orange: #f97316;
+            --accent-cyan: #00ffcc;
+            --accent-blue: #38bdf8;
+            --gold: #ffd700;
+            --text-light: #f8fafc;
+            --text-muted: #64748b;
+            --border: #1e293b;
+            --danger: #ef4444;
+            --success: #10b981;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #1e293b; padding-bottom: 20px; }
+        header h1 { color: var(--accent-orange); font-size: 34px; margin: 0 0 10px 0; text-shadow: 0 0 20px rgba(249, 115, 22, 0.4); }
+        header h1 span { color: var(--accent-cyan); }
+        .subtitle { color: #94a3b8; font-size: 15px; max-width: 800px; margin: 0 auto; }
+        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        @media (max-width: 992px) { .grid-layout { grid-template-columns: 1fr; } }
+        .panel { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .panel-title { color: var(--gold); font-size: 20px; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        label { display: block; margin: 15px 0 6px; color: #cbd5e1; font-weight: 600; font-size: 14px; }
+        input, select { width: 100%; padding: 12px; background-color: #050811; color: #fff; border: 1px solid #334155; border-radius: 8px; font-size: 15px; }
+        input:focus, select:focus { border-color: var(--accent-cyan); outline: none; }
+        button { margin-top: 25px; width: 100%; padding: 15px; background: linear-gradient(135deg, #ea580c, #f97316); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5); }
+        .live-ticker { background-color: #050811; border-radius: 10px; padding: 15px; margin-bottom: 20px; border: 1px solid #1e293b; }
+        .ticker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center; }
+        .ticker-val { font-size: 22px; font-weight: bold; color: var(--accent-cyan); font-family: monospace; }
+        .ticker-lbl { font-size: 11px; color: #94a3b8; text-transform: uppercase; }
+        .output-box { margin-top: 25px; padding: 30px; background-color: #03060f; border-left: 6px solid var(--accent-cyan); border-radius: 12px; display: none; border: 1px solid #1e293b; border-left-width: 6px; }
+        .section-title { color: var(--gold); font-size: 18px; border-bottom: 1px dashed #334155; padding-bottom: 5px; margin-top: 25px; font-weight: bold; }
+        .warning-box { margin-top: 15px; padding: 15px; background: #271414; border: 1px solid #f87171; border-radius: 8px; color: #fca5a5; }
+        .guide-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .do-panel { background-color: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px; padding: 12px; color: var(--success); }
+        .dont-panel { background-color: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 12px; color: var(--danger); }
+        .highlight { color: var(--accent-blue); font-weight: bold; }
+        .cyan-text { color: var(--accent-cyan); font-weight: bold; }
+        .remedy { color: #f43f5e; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>STGV <span>విశ్వదర్శనం</span> - కాలచక్ర డైనమిక్ ఒరాకిల్</h1>
+        <div class="subtitle">తాంత్రిక కాల చలన సూత్రాలు, సంఖ్యా వైబ్రేషన్స్ మరియు ప్రాచీన జ్యోతిష్య ప్రశ్న శాస్త్ర సమ్మేళనం</div>
+    </header>
+
+    <div class="grid-layout">
+        <div class="panel">
+            <div class="panel-title">🌌 కాస్మిక్ డేటా ఎంట్రీ (Input)</div>
+            
+            <label for="fullName">మీ పూర్తి పేరు (ఇంగ్లీష్ లో - ఖచ్చితమైన స్పెల్లింగ్):</label>
+            <input type="text" id="fullName" placeholder="ఉదా: Saidu Thirumalesh" required>
+
+            <label for="birthDate">మీ పుట్టిన తేదీ (Date of Birth):</label>
+            <input type="date" id="birthDate" required>
+
+            <label for="breathRate">ప్రస్తుత శ్వాస వేగం (నిమిషానికి):</label>
+            <input type="number" id="breathRate" value="15" min="5" max="30">
+
+            <label for="divineNumber">1 నుండి 108 లోపు ఒక పవిత్ర సంఖ్యను మనస్సులో తలుచుకుని ఇక్కడ ఎంటర్ చేయండి (జ్యోతిష్య ప్రశ్న లాజిక్):</label>
+            <input type="number" id="divineNumber" min="1" max="108" placeholder="ఉదా: 9, 27, 45, 108" required>
+
+            <label for="userFocus">ప్రస్తుత మీ సంకల్పం / ప్రశ్న దేని గురించి?:</label>
+            <select id="userFocus">
+                <option value="obstacles">ఆర్థిక అభివృద్ధి / నిలిచిపోయిన గృహ నిర్మాణ పనులు</option>
+                <option value="focus">సాంకేతిక విద్య, కోడింగ్ విజయాలు & ఏకాగ్రత</option>
+                <option value="peace">మానసిక ప్రశాంతత, ఒత్తిడి & శారీరక శక్తి నియంత్రణ</option>
+            </select>
+
+            <button onclick="generateDynamicCosmicReport()">సంపూర్ణ కాలచక్ర భవిష్య దర్శనం</button>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">🌍 లైవ్ కాస్మిక్ మాట్రిక్స్ మానిటర్</div>
+            <div class="live-ticker">
+                <div class="ticker-grid">
+                    <div class="ticker-item">
+                        <div class="ticker-val" id="caliSeconds">5126...</div>
+                        <div class="ticker-lbl">కలియుగ గమన సెకన్లు</div>
+                    </div>
+                    <div class="ticker-item">
+                        <div class="ticker-val" id="livePulse" style="color: var(--accent-orange);">0.00 Hz</div>
+                        <div class="ticker-lbl">లైవ్ కాస్మిక్ పల్స్ తరంగం</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #050811; padding: 15px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 15px;">
+                <span style="color: var(--gold); font-weight: bold; font-size: 14px;">🔮 ప్రాచీన జ్యోతిష్య మూలం:</span>
+                <p style="font-size: 13.5px; color: #cbd5e1; margin: 5px 0 0 0;">ఈ ఇంజిన్ కేవలం డేటాను చదవదు. మీరు 'బటన్' నొక్కిన క్షణంలో విశ్వంలో ఉండే కాలగతిని (Query Time Pulse) లెక్కిస్తుంది. కాబట్టి ఇది ప్రతి ఒక్కరికీ ప్రత్యేకమైన సమాధానాన్ని ఇస్తుంది.</p>
+            </div>
+            
+            <div style="background: #050811; padding: 15px; border-radius: 10px; border: 1px solid var(--border);">
+                <span style="color: var(--accent-cyan); font-weight: bold; font-size: 14px;">✨ తాంత్రిక సూత్రం:</span>
+                <p style="font-size: 13.5px; color: #cbd5e1; margin: 5px 0 0 0; font-style: italic;">"యథా పిండే తథా బ్రహ్మాండే" - బ్రహ్మాండంలో జరిగే గ్రహ చలనాలు మీ శ్వాస ద్వారా మీ పిండంలో (శరీరంలో) ప్రతిబింబిస్తాయి. ప్రాణాయామం ద్వారా వీటిని మీ అధీనంలోకి తెచ్చుకోవచ్చు.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="outputBox" class="output-box"></div>
+</div>
+
+<script>
+    // Live continuous ticker logic
+    setInterval(() => {
+        const baseSeconds = 161642880000; 
+        const now = Math.floor(Date.now() / 1000) % 1000000;
+        document.getElementById('caliSeconds').innerText = (baseSeconds + now).toLocaleString();
+        
+        // Dynamic continuous wave calculation
+        const pulse = (Math.sin(Date.now() / 2000) * 5 + 12).toFixed(2);
+        document.getElementById('livePulse').innerText = pulse + " Hz";
+    }, 1000);
+
+    function reduceToSingleDigit(num) {
+        while (num > 9) {
+            num = num.toString().split('').reduce((acc, curr) => acc + parseInt(curr), 0);
+        }
+        return num;
+    }
+
+    function calculateNameVibration(name) {
+        let cleanName = name.toUpperCase().replace(/[^A-Z]/g, '');
+        let total = 0;
+        for (let i = 0; i < cleanName.length; i++) {
+            total += cleanName.charCodeAt(i);
+        }
+        return (total % 9) + 1;
+    }
+
+    function generateDynamicCosmicReport() {
+        const name = document.getElementById('fullName').value.trim();
+        const dateInput = document.getElementById('birthDate').value;
+        const breathRate = parseInt(document.getElementById('breathRate').value) || 15;
+        const divineNumber = parseInt(document.getElementById('divineNumber').value) || 7;
+        const focus = document.getElementById('userFocus').value;
+        const outputBox = document.getElementById('outputBox');
+
+        if (!name || !dateInput) {
+            alert("దయచేసి అన్ని వివరాలను నమోదు చేయండి!");
+            return;
+        }
+
+        // --- DYNAMIC CORE TIME ENGINE (The Magic) ---
+        // నొక్కిన క్షణం యొక్క మిల్లీ సెకన్ల ఆధారంగా తాంత్రిక వేవ్ లెక్కించడం (0 నుండి 4)
+        const currentClickTimePulse = Date.now() % 5; 
+
+        const dateParts = dateInput.split('-');
+        const year = parseInt(dateParts[0]);
+        const month = parseInt(dateParts[1]);
+        const day = parseInt(dateParts[2]);
+
+        const soulNumber = reduceToSingleDigit(day);
+        const lifePathNumber = reduceToSingleDigit(day + month + year);
+        const nameWeight = calculateNameVibration(name);
+        
+        // ప్రశ్న శాస్త్ర సంఖ్య గణన
+        const prashnaIndex = reduceToSingleDigit(divineNumber + currentClickTimePulse);
+
+        // --- 1. తాంత్రిక శాస్త్ర ఫలితాలు (నిమిష కాల చలనం ప్రకారం) ---
+        let tantraResults = [
+            "<b>భైరవ కాలచక్ర తరంగం:</b> ప్రస్తుతం మీ ఆరా (Aura) చుట్టూ ఉన్న ప్రతికూలతలు తొలగిపోతున్నాయి. రాబోయే 90 రోజులలో మీ సంకల్పం సిద్ధిస్తుంది. శ్వాస వేగాన్ని స్థిరంగా ఉంచండి.",
+            "<b>శక్తి చైతన్య తరంగం:</b> మీ ఆలోచనలలో తీవ్రమైన మథనం జరుగుతోంది. ఒక అదృశ్య శక్తి మిమ్మల్ని నడిపిస్తోంది. ఆగిపోయిన పనులు లేదా గృహ పనులలో కదలిక వస్తుంది.",
+            "<b>ఆకాశ శూన్య తరంగం:</b> ప్రస్తుత కాలం కొంత ఓర్పును కోరుతోంది. అనవసరమైన ఆవేశాలకు లోనవకుండా నిశ్శబ్దంగా మీ పని (కోడింగ్ లేదా వృత్తి) చేసుకోండి, విజయం మీదే.",
+            "<b>మాతృక ప్రసాద తరంగం:</b> మీ దేహంలో ప్రాణశక్తి అద్భుతంగా ఉంది. మీరు అనుకున్న పెద్ద ప్రాజెక్టులు (STGV లాంటి అప్లికేషన్లు) సమాజానికి మేలు చేస్తాయి. ముందడుగు వేయండి.",
+            "<b>సూర్య నాడీ ప్రచోదన తరంగం:</b> తీవ్రమైన భౌతిక శ్రమ తర్వాత అద్భుతమైన యోగ కాలం ప్రారంభం కాబోతోంది. మీ బుద్ధి తీవ్రత పెరిగి కొత్త టెక్నాలజీలను సులభంగా ఆకళింపు చేసుకుంటారు."
+        ];
+        let finalTantra = tantraResults[currentClickTimePulse];
+
+        // --- 2. సంఖ్యా శాస్త్ర ఫలితాలు (Numerology Matrix) ---
+        let numerologyResults = "";
+        let numCombo = soulNumber + "" + lifePathNumber;
+        
+        if (soulNumber === 4 || soulNumber === 8 || lifePathNumber === 4 || lifePathNumber === 8) {
+            numerologyResults = `మీ సంఖ్యా బలంలో శని మరియు రాహువుల చైతన్యం (సాంకేతికత & కఠిన శ్రమ) ఉంది. సమాజంలోని స్వార్థాన్ని చూసి మీరు విసిగిపోయినా, మీ వినూత్న ఆలోచనల ద్వారా మీరే ఒక ఉదాహరణగా నిలుస్తారు. 2026 సంవత్సరం మీ ఆర్థిక రంగానికి, గృహ పనులకు మలుపు తిప్పే కాలం.`;
+        } else if (soulNumber === 1 || soulNumber === 9) {
+            numerologyResults = `మీరు అపారమైన లీడర్‌షిప్ నంబర్లను కలిగి ఉన్నారు. మీ పేరు వైబ్రేషన్ (${nameWeight}) మీ పుట్టిన తేదీతో మ్యాచ్ అవుతోంది. స్వంత సామర్థ్యంతో పైకి వస్తారు, ఎవరి సహాయం ఆశించరు.`;
+        } else {
+            numerologyResults = `మీ సంఖ్యా శాస్త్ర సూచిక ప్రకారం మీ మేధస్సు ప్రణాళికాబద్ధంగా ఉంటుంది. ఒరాకిల్ సంఖ్య ${prashnaIndex} మీ నామ శబ్ద తరంగాలతో కలిసి మీ జీవితంలో ఊహించని ధనలాభాన్ని, కీర్తిని సూచిస్తోంది.`;
+        }
+
+        // --- 3. ప్రాచీన జ్యోతిష్య ప్రశ్న శాస్త్ర ఫలితాలు (Prashna Shastra) ---
+        let astrologyResults = "";
+        switch(prashnaIndex) {
+            case 1: case 2: case 3:
+                astrologyResults = "<b>శుభ సూచకం:</b> మీరు ఎంచుకున్న పవిత్ర సంఖ్య మరియు ప్రశ్న సమయం ప్రకారం మీ సంకల్పం ఖచ్చితంగా నెరవేరుతుంది. గురు గ్రహ అనుగ్రహం వల్ల ఆటంకాలన్నీ తొలగిపోతాయి.";
+                break;
+            case 4: case 5: case 6:
+                astrologyResults = "<b>మధ్యమ సూచకం:</b> పని పూర్తవుతుంది కానీ కొంత ఆలస్యం అవుతుంది. శని/రాహు ప్రభావం వల్ల పనులలో చిన్న చిన్న అడ్డంకులు రావచ్చు. పట్టుదల వీడకండి.";
+                break;
+            default:
+                astrologyResults = "<b>పరిశోధన సూచకం:</b> కాలం మిమ్మల్ని పరీక్షించి ఉన్నత స్థానానికి చేర్చాలనుకుంటోంది. ఈ సమయంలో మీ శ్వాసపై నియంత్రణ (ప్రాణాయామం) మరియు నైతిక విలువలతో కూడిన జీవనం మీకు రక్షణగా నిలుస్తాయి.";
+        }
+
+        // --- 4. వైవిధ్య భరిత భవిష్యత్ దర్శన సూచికలు (10 విభాగాలు) ---
+        let healthAstro = `శ్వాస వేగం ${breathRate} ప్రకారం మీ ఊపిరితిత్తుల కాస్మిక్ సామర్థ్యం అద్భుతంగా ఉంది. ఒత్తిడి పెరిగినప్పుడు ఎడమ నాడి శ్వాస (చంద్ర ప్రాణాయామం) అద్భుత ఔషధం.`;
+        let careerAstro = `సాఫ్ట్‌వేర్, AI డెవలప్‌మెంట్, లేదా భారీ శ్రమతో కూడిన హార్డ్‌వేర్/నిర్మాణ రంగాలు మీకు అపారమైన ధనయోగాన్ని ఇస్తాయి. మీ పిల్లలు భవిష్యత్తులో మేధో శిఖరాలను తాకుతారు.`;
+        
+        let dynamicRemedy = "";
+        if (focus === "obstacles") {
+            dynamicRemedy = `ప్రస్తుత ప్రశ్న కాల నక్షత్రం ప్రకారం, పశ్చిమ దిశలో కూర్చుని <span class="remedy">'క్ష్రౌం'</span> లేదా <span class="remedy">'ఓం నమఃశివాయ'</span> జపించడం వల్ల ఆగిపోయిన ఇల్లు, ఆర్థిక పనులు 3 నెలల్లో ముందడుగు వేస్తాయి.`;
+        } else if (focus === "focus") {
+            dynamicRemedy = `కోడింగ్ లేదా విద్యపై ఏకాగ్రత పెరగడానికి ఉదయం పూట కుడి ముక్కు (సూర్య నాడి) ద్వారా 10 సార్లు దీర్ఘ శ్వాసలు తీసుకోండి. బద్ధకం నశిస్తుంది.`;
+        } else {
+            dynamicRemedy = `కోపాన్ని, మానసిక ఒత్తిడిని తగ్గించుకోవడానికి రోజుకు కనీసం 15 నిమిషాలు ప్రాణాయామం మరియు సాత్విక ఆహార సూత్రాలను పాటించండి.`;
+        }
+
+        // Output Render
+        outputBox.innerHTML = `
+            <h2 style="color: var(--accent-orange); text-align:center; margin-bottom: 25px;">--- STGV కాలచక్ర మహా భవిష్య పత్రం ---</h2>
+            <p style="text-align:center; color:var(--accent-cyan); font-size:14px;">[ కాస్మిక్ క్వెరీ పల్స్ ఇండెక్స్: <b>${currentClickTimePulse}</b> | ప్రశ్న సంఖ్య: <b>${divineNumber}</b> ]</p>
+            
+            <div class="section-title">🔮 1. తాంత్రిక శాస్త్ర కాలచక్ర తరంగం (Tantric Wave)</div>
+            <p>${finalTantra}</p>
+
+            <div class="section-title">📊 2. సంఖ్యా శాస్త్ర విశ్లేషణ (Numerology Matrix)</div>
+            <p>మీ సోల్ నంబర్: <span class="highlight">${soulNumber}</span> | లైఫ్ పాత్ నంబర్: <span class="highlight">${lifePathNumber}</span></p>
+            <p>${numerologyResults}</p>
+
+            <div class="section-title">⏳ 3. ప్రాచీన జ్యోతిష్య ప్రశ్న శాస్త్ర దర్శనం (Astrological Oracle)</div>
+            <p>${astrologyResults}</p>
+
+            <div class="section-title">💍 4. వ్యష్టి కుటుంబ / దాంపత్య కాలరేఖ</div>
+            <p>మీ నామ తరంగాల ప్రకారం దాంపత్య జీవితం స్థిరంగా సాగుతుంది. మీ వంశ వృద్ధిలో మీ పిల్లలు ఉన్నత మేధస్సుతో, శాస్త్రవేత్తలుగా ఎదిగే గ్రహ బలాలు కాలచక్రంలో పొందుపరచబడి ఉన్నాయి.</p>
+
+            <div class="section-title">⚡ 5. ప్రస్తుత సంకల్ప పరిహారం (Dynamic Remedy)</div>
+            <p>${dynamicRemedy}</p>
+
+            <div class="section-title">🧠 6. మానసిక చైతన్యం & శారీరక ఆరోగ్యం</div>
+            <p>${healthAstro}</p>
+
+            <div class="section-title">💼 7. ధన, వృత్తి గమ్యస్థానాలు</div>
+            <p>${careerAstro}</p>
+
+            <div class="section-title">✅ 8. చేయవలసిన కాస్మిక్ పనులు (Dos)</div>
+            <div class="do-panel">రోజువారీ శ్వాస నియంత్రణ (ప్రాణాయామం) అలవరచుకోవడం, పశ్చిమ దిశకు ప్రాధాన్యత ఇవ్వడం, సమాజంలో నైతిక మార్పు కోసం ప్రయత్నించడం.</div>
+
+            <div class="section-title">❌ 9. చేయకూడని పనులు (Don'ts)</div>
+            <div class="dont-panel">ఆవేశంలో అప్పులు ఇవ్వడం లేదా పెద్ద నిర్ణయాలు తీసుకోవడం, శనివారాల్లో అనవసర వివాదాలకు దిగడం, పనులు సగంలో వదిలేయడం.</div>
+
+            <div class="section-title">⚠️ 10. కాలచక్ర హెచ్చరిక (Precautions)</div>
+            <div class="warning-box">
+                📌 <b>గమనిక:</b> కాలం ఎప్పుడూ ఒకేలా ఉండదు. గ్రహాల ఒడిదుడుకులు వచ్చినప్పుడు అపనమ్మకానికి లోనవకుండా, మీ అంతర్గత శ్వాస శక్తినే నమ్ముకోండి. విజయం ఖాయం.
+            </div>
+
+            <p style="font-size:12px; color:var(--text-muted); text-align:center; margin-top:30px;">* ఈ ఫలితం మీరు బటన్ నొక్కిన క్షణంలోని కాల చలనం, మీ సంఖ్య ఆధారంగా సృష్టించబడింది - STGV కాస్మిక్ ల్యాబ్స్ *</p>
+        `;
+        
+        outputBox.style.display = "block";
+        outputBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
+
